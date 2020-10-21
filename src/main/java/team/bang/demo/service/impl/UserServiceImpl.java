@@ -3,6 +3,7 @@ package team.bang.demo.service.impl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import team.bang.demo.dao.UserDao;
+import team.bang.demo.model.dto.UserRegisterDTO;
 import team.bang.demo.model.pojo.User;
 import team.bang.demo.service.UserService;
 
@@ -15,7 +16,7 @@ public class UserServiceImpl implements UserService {
     private UserDao userDao;
 
     @Override
-    public boolean addUser(User user) {
+    public boolean addUser(UserRegisterDTO user) {
         boolean flag = false;
         try {
             userDao.addUser(user);

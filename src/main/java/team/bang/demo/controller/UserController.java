@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import team.bang.demo.annotation.PassToken;
 import team.bang.demo.annotation.UserLoginToken;
+import team.bang.demo.model.dto.UserRegisterDTO;
 import team.bang.demo.model.pojo.User;
 import team.bang.demo.service.UserService;
 import team.bang.demo.utils.TokenUtil;
@@ -16,8 +17,11 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+     *
+     */
     @RequestMapping(value = "/user", method = RequestMethod.POST)
-    public boolean addUser(@RequestBody User user){
+    public boolean addUser(@RequestBody UserRegisterDTO user){
         System.out.println("新增了一个用户");
         System.out.println(user.getUsername());
         return userService.addUser(user);
@@ -33,7 +37,7 @@ public class UserController {
     public boolean deleteUser(@RequestBody User user){
         System.out.println("开始删除");
 
-        return userService.deleteUser(user.getId());
+        return userService.deleteUser(user.getUid());
     }
 
     @RequestMapping(value = "/user", method = RequestMethod.GET)

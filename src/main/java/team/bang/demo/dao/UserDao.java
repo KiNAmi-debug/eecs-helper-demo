@@ -1,6 +1,7 @@
 package team.bang.demo.dao;
 
 import org.apache.ibatis.annotations.*;
+import team.bang.demo.model.dto.UserRegisterDTO;
 import team.bang.demo.model.pojo.User;
 
 import java.util.List;
@@ -8,11 +9,14 @@ import java.util.List;
 @Mapper
 public interface UserDao {
     /**
-     * 用户数据新增
+     * 用户注册
      */
-    @Insert("insert into tb_user(id,username,password,name,phone,email) " +
-            "values (#{id},#{username},#{password},#{name},#{phone},#{email})")
-    void addUser(User user);
+    @Insert("insert into tb_user(username,password) values (#{username},#{password})")
+    void addUser(UserRegisterDTO user);
+
+//    @Insert("insert into tb_user(id,username,password,name,phone,email) " +
+//            "values (#{id},#{username},#{password},#{name},#{phone},#{email})")
+//    void addUser(UserRegisterDTO user);
 
     @Update("update tb_user set username=#{username}, name=#{name}, phone=#{phone}, email=#{email} where id=#{id}")
     void updateUser(User user);
