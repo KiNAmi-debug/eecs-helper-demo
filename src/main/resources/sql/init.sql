@@ -18,7 +18,7 @@ CREATE TABLE `tb_user` (
 	`email` varchar(25) COLLATE utf8mb4_general_ci DEFAULT NULL COMMENT '邮件地址',
 
   UNIQUE KEY (`username`),
-  KEY `normalIndex` (`username`,`id`,`email`,`phone`)
+  KEY `normalIndex` (`username`,`uid`,`email`,`phone`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
