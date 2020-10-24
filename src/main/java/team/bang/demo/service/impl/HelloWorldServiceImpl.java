@@ -7,6 +7,6 @@ import team.bang.demo.service.HelloWorldService;
 public class HelloWorldServiceImpl implements HelloWorldService {
     @Override
     public String sayHello() {
-        return "Hello, lbl's BanG Dream!";
+        return "Hello, this is a test branch";
     }
 }
